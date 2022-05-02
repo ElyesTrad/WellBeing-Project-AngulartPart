@@ -32,14 +32,13 @@ this._quiz.getQuiz(this.qId).subscribe(
     Swal.fire({
       title: 'Do you want to start the quiz?',
       showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Save',
-      denyButtonText: `Don't save`,
+      confirmButtonText: 'Start',
+    
       icon:'info',
     }).then((result) => {
       
       if (result.isConfirmed) {
-        Swal.fire('Saved!', '', 'success')
+       this._router.navigate(['/quizzuser/start/'+this.qId]);
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
       }

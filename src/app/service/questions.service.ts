@@ -22,4 +22,7 @@ export class QuestionsService {
   deleteQuestion(idq){
     return this._http.delete("http://localhost:8089/PI/Question/DelQue/"+idq);
   }
+  evalQuiz(questions){
+    return this._http.post("http://localhost:8089/PI/Question/evalQuiz",questions);
+  }
 }

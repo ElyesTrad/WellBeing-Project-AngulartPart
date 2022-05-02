@@ -43,7 +43,8 @@ import { QuizSideBarComponent } from './cote-client/quiz-side-bar/quiz-side-bar.
 import { LoadQuizComponent } from './cote-client/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './cote-client/instructions/instructions.component';
 import { StartComponent } from './cote-client/start/start.component';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 
 
@@ -98,7 +99,12 @@ import { StartComponent } from './cote-client/start/start.component';
    MatSnackBarModule,
    MatSlideToggleModule,
    MatSelectModule,
-   CKEditorModule
+   CKEditorModule,
+   MatProgressSpinnerModule,
+   NgxUiLoaderModule,
+   NgxUiLoaderHttpModule.forRoot({
+    showForeground:true,
+   }),
 
   
     
