@@ -24,6 +24,26 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+import { AchievementsComponent } from './Evaluation/achievements/achievements.component';
+import { EvaluationComponent } from './Evaluation/evaluation/evaluation.component';
+import { AchievementsDetailsComponent } from './Evaluation/achievements-details/achievements-details.component';
+import { DashboardachievementComponent } from './Evaluation/dashboardachievement/dashboardachievement.component';
+import { achievementsFilterPipe } from './Evaluation/dashboardachievement/achievements-filter.pipe';
+import { ToastrModule } from 'ngx-toastr';
+import {
+  NbThemeModule,
+  NbCardModule,
+  NbLayoutModule,
+  NbChatModule,
+  NbInputModule,
+  NbButtonModule,
+  NbFormFieldModule
+} from '@nebular/theme';
+import {  QRCodeModule } from 'angular2-qrcode';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -39,7 +59,17 @@ import { RegisterComponent } from './login/register/register.component';
     ListCollaborationComponent,
     AddCollaborationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AchievementsComponent,
+    EvaluationComponent,
+    AchievementsDetailsComponent,
+    DashboardachievementComponent,
+    achievementsFilterPipe,
+  
+    
+    
+
+    
 
   ],
   imports: [
@@ -53,7 +83,20 @@ import { RegisterComponent } from './login/register/register.component';
     FormsModule,
     MatInputModule,
     MatDatepickerModule,
-    MatCardModule
+    MatCardModule,
+    ToastrModule.forRoot({ timeOut: 3000 }),
+    NbInputModule,
+    NbButtonModule,
+    NbCardModule,
+    FormsModule,
+    NbLayoutModule,
+    NbChatModule,
+    NbFormFieldModule,
+    NbThemeModule.forRoot({ name: 'default' }),
+    QRCodeModule
+    
+    
+    
     
     
   ],
