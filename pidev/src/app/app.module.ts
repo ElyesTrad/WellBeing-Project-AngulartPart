@@ -24,6 +24,19 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+import { UserlistComponent } from './userlist/userlist.component';
+import { DetailComponent } from './detail/detail.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { SuccessComponent } from './success/success.component';
+import { OptaComponent } from './opta/opta.component';
+import { RoomComponent } from './opta/room/room.component';
+import { TimeslotComponent } from './opta/timeslot/timeslot.component';
+import { CompetitionComponent } from './opta/competition/competition.component';
+import { MonitorComponent } from './monitor/monitor.component';
+
 
 @NgModule({
   declarations: [
@@ -38,8 +51,21 @@ import { RegisterComponent } from './login/register/register.component';
     HomeAdminComponent,
     ListCollaborationComponent,
     AddCollaborationComponent,
+    RegisterComponent,
+    UserlistComponent,
+    DetailComponent,
+    UpdateUserComponent,
     LoginComponent,
-    RegisterComponent
+    UserLoginComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    SuccessComponent,
+    OptaComponent,
+    RoomComponent,
+    TimeslotComponent,
+    CompetitionComponent,
+    MonitorComponent
+    
 
   ],
   imports: [
