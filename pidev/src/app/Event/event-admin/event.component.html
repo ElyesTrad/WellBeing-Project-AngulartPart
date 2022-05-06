@@ -1,0 +1,278 @@
+<div id="content-page" class="content-page" xmlns:paginate="http://www.w3.org/1999/xhtml">
+  <div class="container">
+    <div class="row">
+      <h1>Liste des Evennements</h1>
+
+
+      <div class="col-lg-4" id="marginnn">
+        <div id="divWeatherMain">
+          <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+            <i class="fas fa-3x fa-sun sun"></i>
+          </div>
+          <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+            <i class="fas fa-3x fa-moon moon"></i>
+          </div>
+          <div class="weatherWidgetRow cloudDiv">
+            <i class="fas fa-cloud fa-3x cloud"></i>
+          </div>
+          <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">{{WeatherData.temp_celcius}}°</div>
+          <div class="weatherWidgetRow" style="font-size: 12px;">{{WeatherData.temp_min}}° / {{WeatherData.temp_max}}°
+          </div>
+          <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{WeatherData.temp_feels_like}}°</div>
+          <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{WeatherData.name}}</div>
+          <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{WeatherData.main.humidity}}%</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4"
+             *ngFor="let p of listEvent  | paginate: { itemsPerPage: 3, currentPage: pageOp,totalItems:listEvent.length } ">
+          <div class="card">
+            <div class="card-header">
+              <div style="display: flex ">
+                <div class="card-header-actions">
+                  <label class="switch switch-sm switch-label switch-info">
+                    <span class="switch-slider" data-checked="On" data-unchecked="Off"></span>
+                  </label>
+                </div>
+                <p style="padding: 0px 0px 0px 10px"> name : {{p.name}} </p>
+                <div class="card-header-toolbar d-flex align-items-center">
+                  <div class="dropdown">
+                    <div class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+                         role="button">
+                      <i class="ri-more-fill h4"></i>
+                    </div>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="">
+                      <a (click)="generatePdf(p.id)" class="dropdown-item"><i class="ri-eye-fill me-2"></i>pdf</a>
+                      <a (click)="deleteEvent(p)" class="dropdown-item"><i class="ri-delete-bin-6-fill me-2"></i>Delete</a>
+                      <a (click)="myModal.show()" (click)="upData(p.id)" class="dropdown-item"><i
+                        class="ri-pencil-fill me-2"></i>Edit</a>
+                    </div>
+                  </div>
+                </div>
+                <div style="text-align: left">
+                </div>
+              </div>
+
+            </div>
+            <div class="card-body">
+              <p class="card-text">Lieux : {{p.place}}</p>
+              <p class="card-text">nombre de Participant : {{p.nbrParticipate}}</p>
+              <p class="card-text">nombre de place : {{p.nbrPlace}}</p>
+              <p class="card-text">date : {{p.date.split("T")[0] }}</p>
+              <p class="card-text">date fin : {{p.finalDateRquest.split("T")[0]}}</p>
+
+
+              <p class="card-text">Type: {{p.ineterestCenter}}</p>
+
+
+            </div>
+
+          </div>
+          <!--******************************************************************************************************************-->
+
+
+          <!--******************************************************************************************************************-->
+
+        </div>
+        <pagination-controls (pageChange)="pageOp = $event"></pagination-controls>
+
+        <!--/.col-->
+
+        <div>
+          <button type="button" class="btn btn-secondary mr-1" data-toggle="modal" (click)="largeModal.show()">
+            Ajouter un evennement
+          </button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-secondary mr-1" routerLink="/cal">
+            Calendar
+          </button>
+        </div>
+
+
+        <div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Add Event</h4>
+
+                <button type="button" class="close" (click)="largeModal.hide()" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="" method="post" class="form-horizontal" #f="ngForm">
+
+                  <div class="row">
+                    <div class="com-sm-8 col-sm-offset-2">
+                      <form (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                          <label for="name">name</label>
+                          <input [(ngModel)]="event.name" type="Text" id="namex" class="form-control" name="name"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">nbr Participant </label>
+                          <input [(ngModel)]="event.nbrParticipate" type="number" id="name1xx" class="form-control"
+                                 name="name"
+                                 required="">
+                        </div>
+                        <div class="form-group">
+                          <label for="name">nombre de place </label>
+                          <input [(ngModel)]="event.nbrPlace" type="number" id="name3xxxx" class="form-control"
+                                 name="name"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">date</label>
+                          <input [(ngModel)]="event.date" type="date" id="name2" class="form-control" name="name"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">Final Date Request </label>
+                          <input [(ngModel)]="event.finalDateRquest" type="date" id="name3xxxxxx" class="form-control"
+                                 name="name"
+                                 required>
+                        </div>
+
+
+                        <div class="form-group">
+                          <label for="name">Centre d'interet</label>
+                          <input [(ngModel)]="event.ineterestCenter" type="Text" id="name4xxxxxxxxxx"
+                                 class="form-control" name="name"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">Place</label>
+                          <input [(ngModel)]="event.place" type="Text" id="name5xxxxx" class="form-control" name="name"
+                                 required>
+                        </div>
+                        <div class="input-group mb-3">
+                          <input type="file" class="form-control" [(ngModel)]="event.picture" name="xx"
+                                 id="customFile"/>
+                        </div>
+
+                        <button type="submit" class="btn btn-secondary" [disabled]="f.invalid">Enregistrer</button>
+                        <button type="submit" class="btn btn-secondary" (click)="updateEvent(event)"
+                                [disabled]="f.invalid">Update
+                        </button>
+
+                      </form>
+                    </div>
+                  </div>
+                </form>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="largeModal.hide()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="refresh()">Save changes</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!--******************************************************************************************************************-->
+
+
+        <!--******************************************************************************************************************-->
+        <!--******************************************************************************************************************-->
+
+
+        <!--******************************************************************************************************************-->
+
+        <div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Update Event</h4>
+
+                <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="" method="post" class="form-horizontal" #f5="ngForm">
+
+                  <div class="row">
+                    <div class="com-sm-8 col-sm-offset-2">
+                      <form>
+                        <div class="form-group">
+                          <label for="name">name : {{event.name}} </label>
+                          <input [(ngModel)]="event.name" type="Text" id="name" class="form-control" name="name"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">nbr Participant : {{event.nbrParticipate}}</label>
+                          <input [(ngModel)]="event.nbrParticipate" type="number" id="name1" class="form-control"
+                                 name="name"
+                                 required="">
+                        </div>
+                        <div class="form-group">
+                          <label for="name">nombre de place; {{event.nbrPlace}} </label>
+                          <input [(ngModel)]="event.nbrPlace" type="number" id="name3" class="form-control" name="name"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">date: {{event.date}}</label>
+                          <input [(ngModel)]="event.date" type="date" id="name21" class="form-control" name="name"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">Final Date Request: {{event.finalDateRquest}} </label>
+                          <input [(ngModel)]="event.finalDateRquest" type="date" id="name3" class="form-control"
+                                 name="name"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">Centre d'interet: {{event.ineterestCenter}}</label>
+                          <input [(ngModel)]="event.ineterestCenter" type="Text" id="name4" class="form-control"
+                                 name="name"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">Place:{{event.place}}</label>
+                          <input [(ngModel)]="event.place" type="Text" id="name5" class="form-control" name="name"
+                                 required>
+                        </div>
+                        <div class="input-group mb-3">
+                          <input type="file" class="form-control" [(ngModel)]="event.picture" name="xx"
+                                 id="customFile"/>
+                        </div>
+
+                        <button type="submit" class="btn btn-secondary" [disabled]="f5.invalid">Enregistrer</button>
+                        <button type="submit" class="btn btn-secondary" (click)="updateEvent(event)"
+                                [disabled]="f.invalid">Update
+                        </button>
+
+                      </form>
+                    </div>
+                  </div>
+                </form>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="refresh()">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

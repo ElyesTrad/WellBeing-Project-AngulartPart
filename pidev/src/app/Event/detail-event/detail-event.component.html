@@ -1,0 +1,72 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-side-bar></app-side-bar>
+  <app-side-chat></app-side-chat>
+  <router-outlet></router-outlet>
+
+  <div id="content-page" class="content-page">
+
+
+    <div class="container">
+      <div class="row">
+        <button class="btn btn-primary" (click)="listEvent()">Liste des events</button>
+        <div>
+          <ngx-qrcode
+            [elementType]="elementType"
+            [value]="'candidat :'+event.name +', date :'+event.date+', type QVT ' +event.ineterestCenter +'}'"
+            cssclass="aclass"
+            [errorCorrectionLevel]="correctionLevel">
+          </ngx-qrcode>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <div style="display: flex ">
+                  <div class="card-header-actions">
+                    <label class="switch switch-sm switch-label switch-info">
+                      <span class="switch-slider" data-checked="On" data-unchecked="Off"></span>
+                    </label>
+                  </div>
+                  <p style="padding: 0px 0px 0px 10px"> name : {{event.name}} </p>
+                  <div class="card-body">
+                    <p class="card-text">Lieux : {{event.place}}</p>
+                    <p class="card-text">nombre de Participant : {{event.nbrParticipate}}</p>
+                    <p class="card-text">nombre de place : {{event.nbrPlace}}</p>
+                    <p class="card-text">date : {{event.date.split("T")[0] }}</p>
+                    <p class="card-text">date fin : {{event.finalDateRquest.split("T")[0] }}</p>
+                    <p class="card-text">Type: {{event.ineterestCenter}}</p>
+                  </div>
+
+                  <div class="card-header-toolbar d-flex align-items-center">
+
+                  </div>
+                  <div style="text-align: left">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container1 justify-content-center mt-5 border-left border-right">
+        <div class="d-flex justify-content-center pt-3 pb-2"><input type="text" name="text"
+                                                                    [(ngModel)]="comment.description"
+                                                                    (keypress)="addComment($event)"
+                                                                    placeholder="+ Add a note"
+                                                                    class="form-control addtxt"></div>
+
+        <div class="d-flex justify-content-center py-2" *ngFor="let c of listCommment.reverse() ">
+          <div *ngIf="event.id == c.event.id" class="second py-2 px-2"><span class="text1"> {{c.description}}</span>
+            <div class="d-flex justify-content-between py-1 pt-2">
+              <div><img src="https://i.imgur.com/AgAC1Is.jpg" width="18"><span class="text2">{{c.user.username}}</span>
+              </div>
+              <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span
+                class="text4">3</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

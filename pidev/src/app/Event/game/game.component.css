@@ -1,0 +1,18 @@
+.row1,.row2,.row3,.row4{
+  margin-bottom: 10px;
+}
+
+.SliderBoard{
+  text-align: center;
+  display: inline-block;
+}
+
+.btn {
+  width: 60px ;
+}
+.hide-tile {
+  opacity:0;
+}
+.play{
+  width:auto !important;
+}
