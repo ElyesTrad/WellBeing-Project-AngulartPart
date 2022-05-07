@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AchievementsDetailsService } from '../services/achievements-details.service';
+
 
 @Component({
   selector: 'app-achievements-details',
@@ -18,8 +19,9 @@ export class AchievementsDetailsComponent implements OnInit {
     this.idAchievements = this.activatedRoute.snapshot.paramMap.get('idAchievements');
     let resp =this.AchievementsDetailsService.getAchievement(this.idAchievements);
     resp.subscribe((data) =>this.achievements=data);
-    
+
     } 
+    
 
   }
 

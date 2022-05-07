@@ -5,16 +5,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger" >
-                        <h4 class="card-title ">Simple Table</h4>
-                        <p class="card-category"> Here is a subtitle for this table</p>
+                        <h4 class="card-title ">Dashboard of Achievements</h4>
+                       
                     </div>
-                    
+                    <button type="button" class="btn btn-primary" (click)="makePDF()">GeneratePDF</button>
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="input-group">
                                 <input type="text" class="form-control rounded" [(ngModel)]="searchText" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                               </div>
-                            <table class="table"  >
+                            <table class="table" id="content" #content  >
                                 <thead class=" text-primary"  >
                                     <th>
                                         IDUser
@@ -30,6 +30,12 @@
                                     </th>
                                     <th>
                                         Score
+                                    </th>
+                                    <th>
+                                       Trophee
+                                    </th>
+                                    <th>
+                                        kudos
                                     </th>
                                     <th>
                                         ActivityBadge
@@ -58,6 +64,13 @@
                                         <td class="text-primary">
                                             {{achievements.score}}
                                         </td>
+                                        <td >
+                                            {{achievements.trophee}}
+                                        </td>
+                                        <td>
+                                            {{achievements.user.kudos}}
+                                        </td>
+
                                         <td>
                                             {{achievements.evaluation.activitybadge}}
                                         </td>
@@ -67,6 +80,10 @@
                                         <td>
                                             {{achievements.evaluation.knowledgebadge}}
                                         </td>
+                                        <td>
+                                            <button type="button" routerLink="/update/{{achievements.idAchievements}}" class="btn btn-secondary">Edit</button>
+                                        </td>
+                                        
                                         <td>
                                             <button type="button" class="btn btn-danger" (click) ="deleteAchievements(achievements.idAchievements)">Delete</button>
                                         </td>

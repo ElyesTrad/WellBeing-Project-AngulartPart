@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AchievementsDetailsService } from '../services/achievements-details.service';
-import { AchievementsService } from '../services/achievements.service';
-import { achievements } from '../models/achievements';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DashboardService } from '../services/dashboard.service';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-dashboardachievement',
@@ -11,6 +8,7 @@ import { DashboardService } from '../services/dashboard.service';
   styleUrls: ['./dashboardachievement.component.css']
 })
 export class DashboardachievementComponent implements OnInit {
+  @ViewChild('content',{static:false}) el!:ElementRef ;
   searchText :any ;
   dashboardchievements:any ;
   constructor(private dashboardservice: DashboardService) { }
@@ -21,5 +19,14 @@ export class DashboardachievementComponent implements OnInit {
   public deleteAchievements(idAchievements:number){
     let resp= this.dashboardservice.deleteAchievements(idAchievements);
     resp.subscribe((data)=>this.dashboardchievements=data);
+  }
+  makePDF(){
+    let pdf = new jsPDF ('p','pt','a4') ;
+    pdf.html(this.el.nativeElement,{
+      callback:(pdf)=>{
+        pdf.save("achievements.pdf");
+      }
+    });
+    
   }
 }

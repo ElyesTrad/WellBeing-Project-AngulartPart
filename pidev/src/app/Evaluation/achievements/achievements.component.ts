@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { AchievementsService } from '../services/achievements.service';
 import { Router } from '@angular/router';
 import { achievements } from '../models/achievements';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-achievements',
@@ -9,6 +10,7 @@ import { achievements } from '../models/achievements';
   styleUrls: ['./achievements.component.css']
 })
 export class AchievementsComponent implements OnInit {
+  
    allachievements:any ;
    a : achievements[] ;
   constructor(private achievementsService: AchievementsService) { }

@@ -40,6 +40,8 @@ import {
   NbFormFieldModule
 } from '@nebular/theme';
 import {  QRCodeModule } from 'angular2-qrcode';
+import { UpdateachievementsComponent } from './Evaluation/updateachievements/updateachievements.component';
+
 
 
 
@@ -65,6 +67,7 @@ import {  QRCodeModule } from 'angular2-qrcode';
     AchievementsDetailsComponent,
     DashboardachievementComponent,
     achievementsFilterPipe,
+    UpdateachievementsComponent,
   
     
     
@@ -93,7 +96,8 @@ import {  QRCodeModule } from 'angular2-qrcode';
     NbChatModule,
     NbFormFieldModule,
     NbThemeModule.forRoot({ name: 'default' }),
-    QRCodeModule
+    QRCodeModule,
+  
     
     
     

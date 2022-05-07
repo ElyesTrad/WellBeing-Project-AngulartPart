@@ -1,0 +1,57 @@
+<app-header-admin></app-header-admin>
+<app-side-bar-admin></app-side-bar-admin>
+
+
+<div id="content-page" class="content-page" >
+  <div class="container" >
+     <div class="row" >
+        
+<form [formGroup]="formAchievements"  (ngSubmit)="updateAchievements()">
+  
+  <div class="col-xl-4">
+    
+   
+    <div class="form-group">
+          <label for="exampleFormControlInput1">score</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" formControlName="score">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">trophee</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" formControlName="trophee">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">ActivityPoints</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" formControlName="activitypoints">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">GamesPoints</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" formControlName="gamespoints">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Gift Points</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" formControlName="giftpoints">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Quiz Points</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" formControlName="quizpoints">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Activity Badge</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="activitybadge">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Knowledge Badge</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="activitybadge">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlInput1">GamesBadge </label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="activitybadge">
+          </div>
+
+        
+   
+       
+        <button class="btn btn-primary float-end" >Update</button>
+        </div>
+  </form>

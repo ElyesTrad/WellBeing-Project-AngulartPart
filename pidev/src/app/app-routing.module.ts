@@ -8,6 +8,7 @@ import { AchievementsDetailsComponent } from './Evaluation/achievements-details/
 import { AchievementsComponent } from './Evaluation/achievements/achievements.component';
 import { DashboardachievementComponent } from './Evaluation/dashboardachievement/dashboardachievement.component';
 import { EvaluationComponent } from './Evaluation/evaluation/evaluation.component';
+import { UpdateachievementsComponent } from './Evaluation/updateachievements/updateachievements.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path :'achievements/achievementsdetails/:idAchievements',component:AchievementsDetailsComponent},
   {path:'evaluation',component:EvaluationComponent},
   {path:'dashboardachievements',component:DashboardachievementComponent},
+  {path:'update/:idAchievements',component:UpdateachievementsComponent}
 ];
 
 @NgModule({
