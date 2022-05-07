@@ -14,6 +14,8 @@ export class UserlistComponent implements OnInit {
   users : User[]
   p :number=1;
   searchText:any;
+
+
   constructor(private auth: AuthService , private service : UserService , ar : ActivatedRoute,private router : Router) { }
 
   
