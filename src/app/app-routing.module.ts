@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddPostsComponent } from './dashboard-admin/add-posts/add-posts.component';
 import { AddCollaborationComponent } from './collaboration-admin/add-collaboration/add-collaboration.component';
 import { ListCollaborationComponent } from './collaboration-admin/list-collaboration/list-collaboration.component';
 import { HomeClientComponent } from './cote-client/home-client/home-client.component';
@@ -19,6 +20,9 @@ import { ViewQuizzesComponent } from './dashboard-admin/view-quizzes/view-quizze
 import { ViewsCategoriesComponent } from './dashboard-admin/views-categories/views-categories.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+import { PostListComponent } from './dashboard-admin/post-list/post-list.component';
+import { TestpostComponent } from './testpost/testpost.component';
+
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -60,13 +64,19 @@ const routes: Routes = [
   {path:'add-questions/:idQuiz/:title',
   component:AddQuestionsComponent 
 
-  }
+  },
+  { path: 'posts', component: PostListComponent },
+  
+  { path: 'form', component: AddPostsComponent },
+  { path: 'form/:id', component: AddPostsComponent },
+  { path: 'testpost', component: TestpostComponent },
 
   
 ]},
   {path:'listCollaboration',component:ListCollaborationComponent},
   {path:'addCollaborator',component:AddCollaborationComponent},
   {path:'register',component:RegisterComponent},
+ 
 ];
 
 @NgModule({

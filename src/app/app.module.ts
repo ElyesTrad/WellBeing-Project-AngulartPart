@@ -45,6 +45,10 @@ import { InstructionsComponent } from './cote-client/instructions/instructions.c
 import { StartComponent } from './cote-client/start/start.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { AddPostsComponent } from './dashboard-admin/add-posts/add-posts.component';
+import { PostListComponent } from './dashboard-admin/post-list/post-list.component';
+import { TestpostComponent } from './testpost/testpost.component';
+
 
 
 
@@ -74,7 +78,11 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
     QuizSideBarComponent,
     LoadQuizComponent,
     InstructionsComponent,
-    StartComponent
+    StartComponent,
+    AddPostsComponent,
+    PostListComponent,
+    TestpostComponent,
+   
    
     
     

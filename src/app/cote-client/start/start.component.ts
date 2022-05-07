@@ -35,6 +35,8 @@ this.loadQuestions();
      this.questions.forEach( (q)=> {
          q['givenAnswer'] = '';
        });
+
+       
        console.log(this.questions); 
        this.startTimer();
     },
