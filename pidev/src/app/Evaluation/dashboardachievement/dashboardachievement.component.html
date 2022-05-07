@@ -1,0 +1,106 @@
+<app-header-admin></app-header-admin>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger" >
+                        <h4 class="card-title ">Dashboard of Achievements</h4>
+                       
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="makePDF()">GeneratePDF</button>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div class="input-group">
+                                <input type="text" class="form-control rounded" [(ngModel)]="searchText" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                              </div>
+                            <table class="table" id="content" #content  >
+                                <thead class=" text-primary"  >
+                                    <th>
+                                        IDUser
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                       idAchievements
+                                    </th>
+                                    <th>
+                                        Date de debut
+                                    </th>
+                                    <th>
+                                        Score
+                                    </th>
+                                    <th>
+                                       Trophee
+                                    </th>
+                                    <th>
+                                        kudos
+                                    </th>
+                                    <th>
+                                        ActivityBadge
+                                    </th>
+                                    <th>
+                                       GamesBadge
+                                    </th>
+                                    <th>
+                                        KnowledgeBadge
+                                     </th>
+                                </thead>
+                                <tbody *ngFor="let achievements of dashboardchievements | achievementsFilter:searchText"  >
+                                    <tr>
+                                        <td>
+                                            {{achievements.user.id}}
+                                        </td>
+                                        <td>
+                                            {{achievements.user.username}}
+                                        </td>
+                                        <td>
+                                            {{achievements.idAchievements}}
+                                        </td>
+                                        <td>
+                                            {{achievements.evaluation.startEvaluation}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{achievements.score}}
+                                        </td>
+                                        <td >
+                                            {{achievements.trophee}}
+                                        </td>
+                                        <td>
+                                            {{achievements.user.kudos}}
+                                        </td>
+
+                                        <td>
+                                            {{achievements.evaluation.activitybadge}}
+                                        </td>
+                                        <td>
+                                            {{achievements.evaluation.gamesbadge}}
+                                        </td>
+                                        <td>
+                                            {{achievements.evaluation.knowledgebadge}}
+                                        </td>
+                                        <td>
+                                            <button type="button" routerLink="/update/{{achievements.idAchievements}}" class="btn btn-secondary">Edit</button>
+                                        </td>
+                                        
+                                        <td>
+                                            <button type="button" class="btn btn-danger" (click) ="deleteAchievements(achievements.idAchievements)">Delete</button>
+                                        </td>
+                                    </tr>
+                                    
+                                   
+                                    
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+  </div>
+  

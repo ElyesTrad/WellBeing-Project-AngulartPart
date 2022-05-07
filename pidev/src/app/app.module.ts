@@ -23,6 +23,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+<<<<<<< HEAD
 import { UserlistComponent } from './userlist/userlist.component';
 import { DetailComponent } from './detail/detail.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
@@ -53,6 +54,29 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+=======
+import { AchievementsComponent } from './Evaluation/achievements/achievements.component';
+import { EvaluationComponent } from './Evaluation/evaluation/evaluation.component';
+import { AchievementsDetailsComponent } from './Evaluation/achievements-details/achievements-details.component';
+import { DashboardachievementComponent } from './Evaluation/dashboardachievement/dashboardachievement.component';
+import { achievementsFilterPipe } from './Evaluation/dashboardachievement/achievements-filter.pipe';
+import { ToastrModule } from 'ngx-toastr';
+import {
+  NbThemeModule,
+  NbCardModule,
+  NbLayoutModule,
+  NbChatModule,
+  NbInputModule,
+  NbButtonModule,
+  NbFormFieldModule
+} from '@nebular/theme';
+import {  QRCodeModule } from 'angular2-qrcode';
+import { UpdateachievementsComponent } from './Evaluation/updateachievements/updateachievements.component';
+
+
+
+
+>>>>>>> TASK-YAHIA
 
 
 @NgModule({
@@ -73,6 +97,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     DetailComponent,
     UpdateUserComponent,
     LoginComponent,
+<<<<<<< HEAD
     UserLoginComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
@@ -95,6 +120,19 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AddPublibtyComponent,
     ListPublicityComponent,
     PublicityComponent,
+=======
+    RegisterComponent,
+    AchievementsComponent,
+    EvaluationComponent,
+    AchievementsDetailsComponent,
+    DashboardachievementComponent,
+    achievementsFilterPipe,
+    UpdateachievementsComponent,
+  
+    
+    
+
+>>>>>>> TASK-YAHIA
     
 
   ],
@@ -110,6 +148,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatInputModule,
     MatDatepickerModule,
     MatCardModule,
+<<<<<<< HEAD
     MatInputModule,
     MatDatepickerModule,
     MatCardModule,
@@ -118,6 +157,23 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     Ng2SearchPipeModule,
     NgxPaginationModule,
     NgxStarRatingModule
+=======
+    ToastrModule.forRoot({ timeOut: 3000 }),
+    NbInputModule,
+    NbButtonModule,
+    NbCardModule,
+    FormsModule,
+    NbLayoutModule,
+    NbChatModule,
+    NbFormFieldModule,
+    NbThemeModule.forRoot({ name: 'default' }),
+    QRCodeModule,
+  
+    
+    
+    
+    
+>>>>>>> TASK-YAHIA
     
   ],
   providers: [],

@@ -14,8 +14,16 @@ import { OffersComponent } from './collaboration-client/offers/offers.component'
 import { PublicityComponent } from './collaboration-client/publicity/publicity.component';
 import { HomeClientComponent } from './cote-client/home-client/home-client.component';
 import { HomeAdminComponent } from './dashboard-admin/home-admin/home-admin.component';
+<<<<<<< HEAD
 import { DetailComponent } from './detail/detail.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+=======
+import { AchievementsDetailsComponent } from './Evaluation/achievements-details/achievements-details.component';
+import { AchievementsComponent } from './Evaluation/achievements/achievements.component';
+import { DashboardachievementComponent } from './Evaluation/dashboardachievement/dashboardachievement.component';
+import { EvaluationComponent } from './Evaluation/evaluation/evaluation.component';
+import { UpdateachievementsComponent } from './Evaluation/updateachievements/updateachievements.component';
+>>>>>>> TASK-YAHIA
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 import { MonitorComponent } from './monitor/monitor.component';
@@ -29,11 +37,13 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserlistComponent } from './userlist/userlist.component';
 
+
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'accueil',component:HomeClientComponent},
   {path:'dashboardAdmin',component:HomeAdminComponent},
   {path:'register',component:RegisterComponent},
+<<<<<<< HEAD
   {path:'detail/:username',component:DetailComponent},
   {path:'users',component:UserlistComponent},
   {path:'login',component:LoginComponent},
@@ -63,6 +73,13 @@ const routes: Routes = [
 
 
 
+=======
+  {path:'achievements',component:AchievementsComponent},
+  {path :'achievements/achievementsdetails/:idAchievements',component:AchievementsDetailsComponent},
+  {path:'evaluation',component:EvaluationComponent},
+  {path:'dashboardachievements',component:DashboardachievementComponent},
+  {path:'update/:idAchievements',component:UpdateachievementsComponent}
+>>>>>>> TASK-YAHIA
 ];
 
 @NgModule({
