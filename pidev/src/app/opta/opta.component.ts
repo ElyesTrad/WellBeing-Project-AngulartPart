@@ -11,6 +11,8 @@ import { UserService } from '../service/user.service';
 })
 export class OptaComponent implements OnInit {
   timeTable :TimeTable
+  p :number=1;
+  searchText:any;
 
   constructor(private UserService : UserService , private router : Router ) { }
 

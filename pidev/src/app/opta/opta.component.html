@@ -35,7 +35,7 @@
   <div class="container">
   
   <div class="row"  >
- <div class="col-md-4" *ngFor="let p of timeTable.competitionList" >
+ <div class="col-md-4" *ngFor="let p of timeTable.competitionList | paginate: { itemsPerPage: 6, currentPage: p } | filter:searchText" >
    <div class="card text-white card-has-bg click-col" style="background-image:url('https://static.vecteezy.com/system/resources/previews/003/186/298/original/versus-background-sport-competition-vs-poster-game-fight-battle-vector.jpg');">
          <img class="card-img d-none"  alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
         <div class="card-img-overlay d-flex flex-column" >
@@ -63,8 +63,12 @@
           
           
         </div>
-      </div></div>
+      </div>
     
+    
+    </div>
+    <pagination-controls (pageChange) ="p = $event" ></pagination-controls>
+
   
   
 </div>

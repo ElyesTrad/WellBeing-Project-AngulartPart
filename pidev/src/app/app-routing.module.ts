@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCollaborationComponent } from './collaboration-admin/add-collaboration/add-collaboration.component';
+import { AddOfferComponent } from './collaboration-admin/add-offer/add-offer.component';
+import { EditCollaborationComponent } from './collaboration-admin/edit-collaboration/edit-collaboration.component';
+import { EditOfferComponent } from './collaboration-admin/edit-offer/edit-offer.component';
+import { ListCollaborationOffersComponent } from './collaboration-admin/list-collaboration-offers/list-collaboration-offers.component';
 import { ListCollaborationComponent } from './collaboration-admin/list-collaboration/list-collaboration.component';
+import { ListOffersComponent } from './collaboration-admin/list-offers/list-offers.component';
+import { ListPublicityComponent } from './collaboration-admin/list-publicity/list-publicity.component';
+import { ViewCollaborationComponent } from './collaboration-admin/view-collaboration/view-collaboration.component';
+import { ViewOfferComponent } from './collaboration-admin/view-offer/view-offer.component';
+import { OffersComponent } from './collaboration-client/offers/offers.component';
+import { PublicityComponent } from './collaboration-client/publicity/publicity.component';
 import { HomeClientComponent } from './cote-client/home-client/home-client.component';
 import { HomeAdminComponent } from './dashboard-admin/home-admin/home-admin.component';
 import { DetailComponent } from './detail/detail.component';
@@ -23,8 +33,6 @@ const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'accueil',component:HomeClientComponent},
   {path:'dashboardAdmin',component:HomeAdminComponent},
-  {path:'listCollaboration',component:ListCollaborationComponent},
-  {path:'addCollaborator',component:AddCollaborationComponent},
   {path:'register',component:RegisterComponent},
   {path:'detail/:username',component:DetailComponent},
   {path:'users',component:UserlistComponent},
@@ -40,6 +48,19 @@ const routes: Routes = [
   {path:'comp',component:CompetitionComponent},
   {path:'monitor',component:MonitorComponent},
  
+  {path:'listCollaboration',component:ListCollaborationComponent},
+  {path:'addCollaboration',component:AddCollaborationComponent},
+  {path:'addOffer/:idCollaboration',component:AddOfferComponent},
+  {path:'listOffer',component:ListOffersComponent},
+  {path:'editCollaboration/:idCollaboration',component:EditCollaborationComponent},
+  {path:'editOffer/:idOffer',component:EditOfferComponent},
+  {path:'viewCollaboration/:idCollaboration',component:ViewCollaborationComponent},
+  {path:'viewOffers/:idCollaboration',component:ListCollaborationOffersComponent},
+  {path:'viewOffer/:idOffer',component:ViewOfferComponent},
+  {path:'offers',component:OffersComponent},
+  {path:'listPublicity',component:ListPublicityComponent},
+  {path:'Publicity',component:PublicityComponent},
+
 
 
 ];

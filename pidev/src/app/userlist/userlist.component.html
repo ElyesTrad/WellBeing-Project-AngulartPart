@@ -4,8 +4,17 @@
 <div id="content-page" class="content-page">
     <div class="container">
        <div class="row" >
+        <div class="iq-search-bar device-search" style="margin-left:100px ;">
+          <div action="#" class="searchbox">
+            
+              <input type="text" [(ngModel)]="searchText" class="text search-input" placeholder="Search here..." >
+          </div>
+      </div>
 
-        <div class=col-md-4 *ngFor="let p of users  " >
+
+        <div class=col-md-4 *ngFor="let p of users | paginate: { itemsPerPage: 3, currentPage: p } | filter:searchText" >
+          <br>
+<br>
           <div >
                 <div class="col mb-3" >
 
@@ -101,8 +110,8 @@
                       ) !important;" type="button" class="read_more_btn" routerLink="/update/{{p.id}}" type="button">Update
                       </button>
 
+
                     </div>
-                 
                   </div>
                  
                 </div>
@@ -110,7 +119,10 @@
                 <div class="solution_cards_box sol_card_top_3">
                   
                  
+
                 </div>
+             
+
               </div>
             </div>
           </div>
@@ -140,6 +152,9 @@
     </div>
 </div>
 </div>
+
+<pagination-controls (pageChange) ="p = $event" ></pagination-controls>
+
 </div>
 </div>
 
