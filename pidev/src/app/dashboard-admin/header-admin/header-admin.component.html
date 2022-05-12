@@ -12,12 +12,7 @@
                     </div>
                 </div>
             </div>
-            <div class="iq-search-bar device-search">
-                <form action="#" class="searchbox">
-                    <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                    <input type="text" class="text search-input" placeholder="Search here...">
-                </form>
-            </div>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-label="Toggle navigation">
@@ -128,6 +123,7 @@
                     <li class="nav-item dropdown">
                               <a href="#" class="search-toggle   dropdown-toggle" id="notification-drop" data-bs-toggle="dropdown">
                                   <i class="ri-notification-4-line"></i>
+                                  
                               </a>
                               <div class="sub-drop dropdown-menu" aria-labelledby="notification-drop">
                                   <div class="card shadow-none m-0">
@@ -199,9 +195,11 @@
                               </div>
                     </li>
                     <li class="nav-item dropdown">
-                              <a href="#" class="dropdown-toggle" id="mail-drop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <i class="ri-mail-line"></i>
-                              </a>
+                              
+                              <svg (click)="onLogout()" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                              </svg>
                               <div class="sub-drop dropdown-menu" aria-labelledby="mail-drop">
                                   <div class="card shadow-none m-0">
                                         <div class="card-header d-flex justify-content-between bg-primary">
@@ -271,12 +269,7 @@
                               </div>
                           </li>
                      <li class="nav-item dropdown">
-                        <a href="#" class="   d-flex align-items-center dropdown-toggle" id="drop-down-arrow" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="../assets/images/user/1.jpg" class="img-fluid rounded-circle me-3" alt="user">
-                            <div class="caption">
-                                <h6 class="mb-0 line-height">Bni Cyst</h6>
-                            </div>
-                        </a>
+                       
                         <div class="sub-drop dropdown-menu caption-menu" aria-labelledby="drop-down-arrow">
                             <div class="card shadow-none m-0">
                                  <div class="card-header  bg-primary">
@@ -314,7 +307,7 @@
                                                 <i class="ri-account-box-line"></i>
                                             </div>
                                             <div class="ms-3">
-                                                <h6 class="mb-0 ">Account settings</h6>
+                                                
                                                 <p class="mb-0 font-size-12">Manage your account parameters.</p>
                                             </div>
                                         </div>
@@ -325,15 +318,14 @@
                                                 <i class="ri-lock-line"></i>
                                             </div>
                                             <div class="ms-3">
-                                                <h6 class="mb-0 ">Privacy Settings</h6>
                                                 <p class="mb-0 font-size-12">Control your privacy parameters.
                                                 </p>
                                             </div>
                                         </div>
                                     </a>
                                     <div class="d-inline-block w-100 text-center p-3">
-                                        <a class="btn btn-primary iq-sign-btn" href="sign-in.html" role="button">Sign
-                                            out<i class="ri-login-box-line ms-2"></i></a>
+                                        <button class="btn btn-primary iq-sign-btn" type="button"  (click) = "onLogout()">logout <i class="ri-login-box-line ms-2"></i></button>
+                                       
                                     </div>
                                 </div>
                             </div>

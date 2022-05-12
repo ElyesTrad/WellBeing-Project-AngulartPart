@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Collaboration } from 'src/app/model/collaboration';
+import { Collaboration } from '../../model/collaboration';
 import { CollaborationService } from 'src/app/service/collaboration.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-add-collaboration',
@@ -11,66 +12,69 @@ import { CollaborationService } from 'src/app/service/collaboration.service';
 })
 export class AddCollaborationComponent implements OnInit {
 
-  idUser: any;
-  collaboration : any;
-  title:any;
-  button: any;
-  idCollaboration:any;
+
+  collaboration : Collaboration=new Collaboration();
   formCollaboration : FormGroup;
+  messageArray:Array<{message:String}> = [];
+  userFile:any;
+  message:string;
+  imagePath:any;
+  imgURL:any;
 
-  constructor(private formBuilder : FormBuilder ,private activatedRoute : ActivatedRoute , router : Router, 
-    private collaborationService : CollaborationService) { }
+  constructor(private formBuilder : FormBuilder ,private activatedRoute : ActivatedRoute, 
+    private collaborationService : CollaborationService , private auth:AuthService ,  private router : Router) {
 
-  ngOnInit(): void {
-    
-    this.idUser = this.activatedRoute.snapshot.paramMap.get('idUser');
-    console.log(this.idUser);
-    
-    if(this.idCollaboration){
-      this.title ='Edit collaboration';
-      this.button = 'Edit';
-
-      this.collaborationService.getCollaborationById(this.idCollaboration).subscribe(
-        (data)=>{
-        console.log(data);
-        this.collaboration = data
-        });
-    }else{
-      this.title ='Add collaboration';
-      this.button = 'Add';
     }
+
+  ngOnInit(): void { 
+    this.auth.loadToken();
+    if (this.auth.getToken()==null || 
+        this.auth.isTokenExpired())
+          this.router.navigate(['/login']);
+    
     this.formCollaboration = this.formBuilder.group({
-      idCollaboration:[''],
       name:[''],
       description:[''],
       phone:[''],
+      town:[''],
       email:[''],
       date:[''],
-      town:[''],
       picture:[''],
-    })
-
-
-  
+    });
   }
 
-
-  AddOrEditCollaboration(){
-      if(this.idCollaboration){
-        this.collaborationService.updateCollaboration(this.collaboration).subscribe(
-          (data)=>{
-            console.log(data)
-          });
-
-        }else{
-          
-        this.idUser = this.activatedRoute.snapshot.paramMap.get('idUser');
-          this.collaborationService.addCollaboration(this.collaboration,this.idUser).subscribe(
+  AddCollaboration(){  
+     
+          this.collaborationService.addCollaboration(this.collaboration,this.userFile).subscribe(
             (data)=>{
               console.log(data)
-            }
-            );
-        }
+            },
+            
+            );  console.log("mochkla") 
       }
+
+  
+  
+    onSelectFile(event:any) {
+      
+      if (event.target.files.length > 0)
+      {
+        const file = event.target.files[0];
+        this.userFile = file;
+       // this.f['profile'].setValue(file);
+   
+      var mimeType = event.target.files[0].type;
+      if (mimeType.match(/image\/*/) == null) {
+        this.message = "Only images are supported.";
+        return;
+      }
+      var reader = new FileReader();
+      console.log("right me")
+      this.imagePath = file;
+      reader.readAsDataURL(file); 
+      reader.onload = (_event) => { 
+        this.imgURL = reader.result; 
+      }
+      }}
   
 }
